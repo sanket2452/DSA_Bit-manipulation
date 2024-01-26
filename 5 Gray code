@@ -1,0 +1,26 @@
+class Solution
+{
+    public:
+    vector<string> graycode(int n)
+    {
+        //code here
+        if(n==1){
+            vector<string> part;
+            part.push_back("0");
+            part.push_back("1");
+            return part;
+        }
+        vector<string> got=graycode(n-1);
+        vector<string> ans;
+        for(int i=0;i<got.size();i++){
+            ans.push_back("0"+got[i]);
+            
+        }
+        for(int i=got.size()-1;i>=0;i--){
+            ans.push_back("1"+got[i]);
+            
+        }
+        return ans;
+        
+    }
+};
